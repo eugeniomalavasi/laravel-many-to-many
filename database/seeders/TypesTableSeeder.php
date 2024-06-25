@@ -13,7 +13,7 @@ class TypesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $types = ['Laravel', 'Vue', 'Javascripst'];
+        $types = ['Website', 'Dashboard', 'WebApp'];
 
         foreach ($types as $type) {
             $newType = new Type();
