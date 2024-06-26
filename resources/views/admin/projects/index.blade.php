@@ -24,6 +24,7 @@
                     <td>{{ $project->content }}</td>
                     <td>{{ $project->last_commit }}</td>
                     <td>{{ $project->type?->name }}</td>
+
                     <td class="d-flex gap-1">
 
                         {{-- SHOW CRUD --}}

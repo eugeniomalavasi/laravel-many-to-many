@@ -24,7 +24,7 @@
             <select name="type_id" for="type" class="form-select">
                 <option selected></option>
                 @foreach ($types as $type)
-                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach
             </select>
 
@@ -35,6 +35,17 @@
             <div class="mb-3">
                 <label for="cover_image" class="form-label">Project image</label>
                 <input type="file" class="form-control" id="cover_image" name="cover_img">
+            </div>
+
+            <div class="mb-4">
+                <ul class="list-group">
+                    @foreach ($technologies as $technology)                        
+                    <li class="list-group-item">
+                        <input name="technologies[]" class="form-check-input me-1" type="checkbox" value="{{ $technology->id }}" id="technology-{{ $technology->id }}">
+                        <label class="form-check-label" for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
 
             <button type="submit" class="btn btn-success">Save</button>

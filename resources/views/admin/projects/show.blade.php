@@ -8,6 +8,11 @@
         <p><span class="fw-bold">Content:</span> {{ $project->content }}</p>
         <p><span class="fw-bold">Last commit:</span> {{ $project->last_commit }}</p>
         <img class="w-25" src="{{asset('storage/' . $project->cover_img) }}" alt="{{ $project->title }}">
+
+        <h4>technology</h4>
+        @foreach ($project->technologies as $technology)              
+        <p>{{ $technology->name }}</p>
+        @endforeach
         <div class="mt-3"><a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Back</a></div>
     </div>
 @endsection
