@@ -17,7 +17,7 @@
 
             <div class="mb-3">
                 <label for="title" class="form-label">Project Name</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
             </div>
 
             <label for="type">Choose Project type</label>
@@ -30,7 +30,7 @@
 
             <div class="mb-3">
                 <label for="content" class="form-label">Project content</label>
-                <textarea class="form-control" id="content" rows="3" name="content"></textarea>
+                <textarea class="form-control" id="content" rows="3" name="content">{{ old('content') }}</textarea>
             </div>
             <div class="mb-3">
                 <label for="cover_image" class="form-label">Project image</label>
@@ -41,7 +41,7 @@
                 <ul class="list-group">
                     @foreach ($technologies as $technology)                        
                     <li class="list-group-item">
-                        <input name="technologies[]" class="form-check-input me-1" type="checkbox" value="{{ $technology->id }}" id="technology-{{ $technology->id }}">
+                        <input @checked(in_array($technology->id, old('technologies', []))) name="technologies[]" class="form-check-input me-1" type="checkbox" value="{{ $technology->id }}" id="technology-{{ $technology->id }}">
                         <label class="form-check-label" for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
                     </li>
                     @endforeach
